@@ -2,6 +2,9 @@ import uvicorn
 from fastapi import FastAPI
 from src.api import parametros  # Tus rutas de búsqueda de noticias
 from src.api import users       # <--- TUS NUEVAS RUTAS DE USUARIOS
+from src.database import create_tables
+
+create_tables()
 
 app = FastAPI(
     title="API Sophia-Search",

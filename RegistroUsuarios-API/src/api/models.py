@@ -22,16 +22,16 @@ class SearchResponse(BaseModel):
 # -- MODELOS DE USUARIO (Sophia-Search)
 
 class UserCreate(BaseModel):
-    full_name: str = Field(..., min_length=1, description="Nombre completo del usuario")
+    nombre: str = Field(..., min_length=1, description="Nombre completo del usuario")
     email: EmailStr = Field(..., description="Correo electrónico válido")
     # AGREGAMOS max_length=72
     password: str = Field(..., min_length=6, max_length=72, description="Contraseña (entre 6 y 72 caracteres)")
 
 class UserResponse(BaseModel):
-    id: str
-    full_name: str
+    id: int
+    nombre: str
     email: EmailStr
-    is_active: bool
+    activo: bool
     
     class Config:
         from_attributes = True
